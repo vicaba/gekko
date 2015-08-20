@@ -4,7 +4,9 @@
 
 A project for the subject of Operating Systems at the University of La Salle Barcelona
 
-In this project I tried to adopt an Object Oriented structure. Also, to develop the client-server architecture with the server handling multiple connections at once (one thread per connection) I tried to follow the Actor Model. Implementing an asynchronous message passing architecture would be so time consuming so I simply followed some aspects of the actor model (for example, passing messages between threads on the server side using pipes) but fundamentally, the application is synchronous and uses mutual exclusion.
+In this project I tried to adopt an Object Oriented structure. Also, to develop the client-server architecture with the server handling multiple connections at once (one thread per connection) I tried to follow the Actor Model. 
+
+Implementing an asynchronous message passing architecture would be so time consuming so I simply followed some aspects of the actor model (for example, passing messages between threads on the server side using pipes) but fundamentally, the application is synchronous and uses mutual exclusion.
 
 The thread on the server side have an epoll that collects all possible events that can be sent to the "Actor".
 * A pipe for internall comunication.
@@ -49,6 +51,6 @@ Utils in the Geeko/src/util folder are DocBlock commented but the other source f
 
 ## Compiling and executing
 
-To compile: ```cd``` in the Geeko/src folder and use ```make```
-Execution of this program is not possible as I don't have the source code of some binaries provided by the University.
+* To compile: ```cd``` in the Geeko/src folder and use ```make```.
+* Execution of this program is not possible as I don't have the source code of some binaries provided by the University during the execution of this project.
 
