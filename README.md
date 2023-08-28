@@ -6,10 +6,10 @@ A project for the subject of Operating Systems at the University of La Salle Bar
 
 In this project I tried to adopt an Object Oriented structure. Also, to develop the client-server architecture with the server handling multiple connections at once (one thread per connection) I tried to follow the Actor Model. 
 
-Implementing an asynchronous message passing architecture would be so time consuming so I simply followed some aspects of the actor model (for example, passing messages between threads on the server side using pipes) but fundamentally, the application is synchronous and uses mutual exclusion.
+I followed some aspects of the actor model (e.g., passing messages between threads/actors on the server side using pipes). I did not create a scheduler to assign threads to actors, and mutual exclusion is still used, although the actor-pipe approach proved to take away a lot of complexity.
 
 The thread on the server side have an epoll that collects all possible events that can be sent to the "Actor".
-* A pipe for internall comunication.
+* A pipe for internal comunication.
 * A socket to communicate over the network with the client.
 
 I also used a GNU macro I found somewhere on the internet that let me declare closures:
@@ -40,7 +40,7 @@ Passing a function as an argument to the llist_foreach function, that takes the 
 
 ## The makefile
 
-Also, although it was very time consuming, I managed to implement a Makefile that solved all dependencies given a .c file . All those dependencies must be inside the src folder and the can't contain whitespaces in ther names. The command is as follows:
+Also, although it was very time consuming, I managed to implement a Makefile that solved all dependencies given a .c file . All those dependencies must be inside the src folder and they can't contain whitespaces in ther names. The command is as follows:
 ```
 shell gcc -MM ./$(N_DIR)/$(RAW_N).c | sed s/$(RAW_N).o\:\ //g | sed  s/\\.h/\\.c/g | sed s/\ \ \ \ //g | sed ':a;N;$!ba;s/\n/ /g' | sed s/\ \ //g | sed 's/\ \\//g' | tr " " "\n" | while read -r line; do readlink -f $$line; done | sort | uniq | sed  s/\ /\\\\\ /g | tr "\n" " "))
 ```
@@ -52,5 +52,5 @@ Utils in the Geeko/src/util folder are DocBlock commented but the other source f
 ## Compiling and executing
 
 * To compile: ```cd``` in the Geeko/src folder and use ```make```.
-* Execution of this program is not possible as I don't have the source code of some binaries provided by the University during the execution of this project.
+* Execution of this program is not possible as I don't have the source code of some binaries provided by the University.
 
